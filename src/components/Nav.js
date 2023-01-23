@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import logo from '../images/crm-logo.png'
 
 const Nav = () => {
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
     
     return (
         <nav>
@@ -10,10 +10,8 @@ const Nav = () => {
                 <img src={logo} alt='logo' />
             </div>
             <div className='controls-container'>
-                {/* <div className='icon' onClick={() => navigate('/ticket')}>+</div>
-                <div className='icon' onClick={() => navigate('/')}>«</div> */}
-                <div className='icon'>+</div>
-                <div className='icon'>«</div>
+                <div className='icon' onClick={() => navigate('/ticket')}>+</div>
+                <div className='icon' onClick={() => navigate('/')}>«</div>
             </div>
         </nav>
     )
