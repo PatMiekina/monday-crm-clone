@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 const TicketPage = () => {
     const [formData, setFormData] = useState({
@@ -8,8 +10,21 @@ const TicketPage = () => {
     });
     const editMode = false
 
-    const handleSubmit = () => {
-        console.log('submitted')
+    const navigate = useNavigate()
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+
+        if (!editMode) {
+            const response = await axios.post('http://localhost:8000/tickets', {
+                formData
+            })
+
+            const success = response.status === 200
+            if (success) {
+                navigate('/')
+            } 
+        }
     }
     const handleChange = (e) => {
         const value = e.target.value
@@ -24,7 +39,7 @@ const TicketPage = () => {
 
     const categories = ['cat1', 'cat2']
 
-    console.log(formData)
+
 
     return (
         <div className='ticket'>
@@ -73,58 +88,54 @@ const TicketPage = () => {
                             value={formData.category}
                         />
 
-                        <label htmlFor='priority'>Priority</label>
-                        <div className='multiple-input-container'>
-                            <input 
+                        <label>Priority</label>
+                            <div className='multiple-input-container'>
+                            <input
                                 id='priority-1'
                                 name='priority'
                                 type='radio'
                                 onChange={handleChange}
-                                value={formData.priority}
-                                checked={formData.priority === 1}
+                                value={1}
+                                checked={formData.priority == 1}
                             />
                             <label htmlFor='priority-1'>1</label>
-
-                            <input 
+                            <input
                                 id='priority-2'
                                 name='priority'
                                 type='radio'
                                 onChange={handleChange}
-                                value={formData.priority}
-                                checked={formData.priority === 2}
+                                value={2}
+                                checked={formData.priority == 2}
                             />
-                            <label htmlFor='priority-1'>2</label>
-
-                            <input 
+                            <label htmlFor='priority-2'>2</label>
+                            <input
                                 id='priority-3'
                                 name='priority'
                                 type='radio'
                                 onChange={handleChange}
-                                value={formData.priority}
-                                checked={formData.priority === 3}
+                                value={3}
+                                checked={formData.priority == 3}
                             />
-                            <label htmlFor='priority-1'>3</label>
-
-                            <input 
+                            <label htmlFor='priority-3'>3</label>
+                            <input
                                 id='priority-4'
                                 name='priority'
                                 type='radio'
                                 onChange={handleChange}
-                                value={formData.priority}
-                                checked={formData.priority === 4}
+                                value={4}
+                                checked={formData.priority == 4}
                             />
-                            <label htmlFor='priority-1'>4</label>
-
-                            <input 
+                            <label htmlFor='priority-4'>4</label>
+                            <input
                                 id='priority-5'
                                 name='priority'
                                 type='radio'
                                 onChange={handleChange}
-                                value={formData.priority}
-                                checked={formData.priority === 5}
+                                value={5}
+                                checked={formData.priority == 5}
                             />
-                            <label htmlFor='priority-1'>5</label>
-                        </div>
+                            <label htmlFor='priority-5'>5</label>
+                            </div>
 
                         {editMode && 
                         <>
