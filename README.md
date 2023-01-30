@@ -1,4 +1,9 @@
-# Getting Started with Create React App
+# Monday CRM Clone
+
+A clone of Monday CRM application focusing on task managements. Includes a front end in React, back end in Node.js with use of Express and Astra DB for storing the data.
+
+Based off [Ania Kubów tutorial](https://www.youtube.com/watch?v=DDh2GoiCrCk).
+The steps of the tutorial were followed until 2:19, due to mistakes in the source code. There seems to be a problem with useEffect or useContext hook. Ania is using useEffect as an asynchronous function, which is currently not supported and I believe this is the main source of the problem.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -6,15 +11,33 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-### `npm start`
+### `npm start:frontend`
 
-Runs the app in the development mode.\
+Runs the front end of the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
+### `npm start:backend`
+
+Runs the back end of the app in the development mode.\
+
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
+
+
+### Dotenv protected variables
+
+The application was connected to Astra DB for data storage. To be able to run it, you will need to create a `.env` file and add your database collection url as well as database token from [Astra DB](https://www.datastax.com/). For instructions on how to do it, please see Ania Kubów's tutorial referenced above.
+
+The convention of naming the variables in `.env` file:
+
+```
+URL='<your_collection_url'
+TOKEN='<your_database_token'
+```
+<!-- ### `npm test`
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
@@ -67,4 +90,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 ### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify) -->
