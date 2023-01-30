@@ -7,6 +7,10 @@ The steps of the tutorial were followed until 2:19, due to mistakes in the sourc
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Installing
+
+To install all the dependencies run `npm install` in your terminal.
+
 ## Available Scripts
 
 In the project directory, you can run:
